@@ -77,9 +77,17 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
 
+var divider = (arr)=>{
+  var evens = [];
+  var odds = [];
+  arr.filter( x => x % 2 === 0 ? evens.push(x) : odds.push(x))
+  return [evens,odds]
+}
+console.log(divider(numbersArray))
 
 
   //Code Here
+
 
 
 //Next Problem
@@ -93,6 +101,15 @@ var getRandomArbitrary = function() {
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
+var finder = (arr) =>{
+  var num = getRandomArbitrary()
+  for(i=0;i<arr.length;i++){
+    if (num===arr[i]){
+      return true
+    }
+  }
+  return false
+}
   //Code Here
 
 
@@ -116,6 +133,12 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
 */
+var removeItem = (myGroceryList,item) => myGroceryList.filter(x => (item !== x))
+
+var addItem = (myGroceryList,item) => {
+  myGroceryList.push(item)
+  return myGroceryList
+}
 
   //Code Here
 
@@ -131,7 +154,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+var maker = () => {
+  var newArr = []
+  for (i=1;i<=215;i++){
+    newArr.push(i)
+  }
+  return newArr
+}
 
 
 //Next Problem
@@ -142,7 +171,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+var addTen = (numbers) =>{
+  var num = []
+  for(i in numbers){
+    num.push(parseInt(numbers[i])+10)
+  }
+  return num
+}
 
 
 //Next Problem
@@ -162,6 +197,8 @@ for(var i = 0; i < num2; i++){
 //Above is some code that adds a random number of values to both arr1 and arr2.
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
+
+var longer = (arr1,arr2)=> arr1>arr2 ? arr1 : arr2
   //Code Here
 
 
@@ -176,7 +213,7 @@ Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
   //Code Here
-
+var both = (arr1,arr2) => arr1.filter(x => arr2.indexOf(x) >= 0)
 
 
 
@@ -214,14 +251,19 @@ var colt = {
 /*Above you're given an empty array with four objects. Fill the devMountainEmployees
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
-
+var fill = ()=>{
+  devMountainEmployees.push(tyler,cahlan,ryan,colt);
+   console.log(devMountainEmployees.length);
+   return devMountainEmployees;
+}
+fill()
   //Code Here
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
+devMountainEmployees = devMountainEmployees.filter(x => x.name !== "Cahlan")
 
 
 
